@@ -1,0 +1,17 @@
+syntax = "proto3";
+package music;
+
+service MusicPlayer {
+    rpc StreamPlaylist(PlaylistRequest) returns (stream TrackResponse) {}
+}
+
+message PlaylistRequest {
+    string playlist_id = 1;
+}
+
+message TrackResponse {
+    string title = 1;
+    string artist = 2;
+    int32 duration_seconds = 3;
+    string timestamp = 4;
+}
