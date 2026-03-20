@@ -1,0 +1,41 @@
+import grpc
+import music_pb2
+import music_pb2_grpc
+
+def main():
+    channel = grpc.insecure_channel('localhost:50051')
+    stub = music_pb2_grpc.MusicPlayerStub(channel)
+    
+    print("MusicPlayer Клиент")
+    print("Доступные плейлисты: rock, electronic, pop")
+    
+    while True:
+        playlist_id = input("\nВведите название плейлиста (или 'exit' для выхода): ")
+        
+        if playlist_id.lower() == 'exit':
+            break
+        
+        request = music_pb2.PlaylistRequest(playlist_id=playlist_id)
+        
+        try:
+            print(f"\nЗапрашиваемый плейлист: {playlist_id}")
+            print("-" * 50)
+            
+            responses = stub.StreamPlaylist(request)
+            
+            track_number = 1
+            for response in responses:
+                minutes = response.duration_seconds // 60
+                seconds = response.duration_seconds % 60
+                print(f"{track_number}. {response.title} - {response.artist} [{minutes}:{seconds:02d}]")
+                print(f"   Время получения: {response.timestamp}")
+                track_number += 1
+            
+            print("-" * 50)
+            print(f"Получено треков: {track_number - 1}")
+            
+        except grpc.RpcError as e:
+            print(f"Ошибка: {e.details()}")
+
+if __name__ == '__main__':
+    main()
