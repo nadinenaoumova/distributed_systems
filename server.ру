@@ -1,0 +1,59 @@
+import grpc
+from concurrent import futures
+import time
+import music_pb2
+import music_pb2_grpc
+
+class MusicPlayerServicer(music_pb2_grpc.MusicPlayerServicer):
+    def __init__(self):
+        self.playlists = {
+            "rock": [
+                {"title": "Bohemian Rhapsody", "artist": "Queen", "duration": 354},
+                {"title": "Stairway to Heaven", "artist": "Led Zeppelin", "duration": 482},
+                {"title": "Smoke on the Water", "artist": "Deep Purple", "duration": 340},
+            ],
+            "electronic": [
+                {"title": "Strobe", "artist": "deadmau5", "duration": 636},
+                {"title": "Animals", "artist": "Martin Garrix", "duration": 304},
+                {"title": "Sandstorm", "artist": "Darude", "duration": 217},
+            ],
+            "pop": [
+                {"title": "Blinding Lights", "artist": "The Weeknd", "duration": 200},
+                {"title": "Shape of You", "artist": "Ed Sheeran", "duration": 233},
+                {"title": "Uptown Funk", "artist": "Mark Ronson", "duration": 269},
+            ]
+        }
+    
+    def StreamPlaylist(self, request, context):
+        playlist_id = request.playlist_id
+        print(f"Получен запрос на плейлист: {playlist_id}")
+        
+        tracks = self.playlists.get(playlist_id)
+        
+        if not tracks:
+            context.set_code(grpc.StatusCode.NOT_FOUND)
+            context.set_details(f"Плейлист {playlist_id} не найден")
+            return
+        
+        for track in tracks:
+            response = music_pb2.TrackResponse(
+                title=track["title"],
+                artist=track["artist"],
+                duration_seconds=track["duration"],
+                timestamp=time.ctime()
+            )
+            yield response
+            time.sleep(1)
+
+def serve():
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    music_pb2_grpc.add_MusicPlayerServicer_to_server(MusicPlayerServicer(), server)
+    server.add_insecure_port('[::]:50051')
+    print("Сервер запущен на порту 50051")
+    server.start()
+    server.wait_for_termination()
+
+if __name__ == '__main__':
+    serve()
+
+
