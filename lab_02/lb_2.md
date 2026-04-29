@@ -52,9 +52,22 @@ Nginx — высокопроизводительный веб-сервер, ко
 ---
 
 ## 5. Ход работы
+Шаг 1. Анализ HTTP-запросов
+1.1 Установка утилит
+```sudo apt update
+sudo apt install curl telnet -y
+```
+1.2 Отправка запроса к сайту (aeroflot.ru)
+```curl -v https://www.aeroflot.ru
+```
+1.3 Анализ ответа
+<img width="947" height="808" alt="image" src="https://github.com/user-attachments/assets/300fc004-7d63-47b4-8205-b44d5b4d6225" />
+GET / HTTP/2 - Запрос главной страницы сайта по протоколу HTTP/2
+HTTP/2 200 - Запрос выполнен успешно
+server: nginx - Сервер работает на Nginx
 
----
 
+Шаг 2. Установка и настройка Nginx
 ## 5.1 Установка и запуск Nginx
 
 ```bash
