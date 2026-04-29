@@ -58,8 +58,9 @@ Nginx — высокопроизводительный веб-сервер, ко
 sudo apt install curl telnet -y
 ```
 1.2 Отправка запроса к сайту (aeroflot.ru)
-```curl -v https://www.aeroflot.ru
-```
+
+```curl -v https://www.aeroflot.ru```
+
 1.3 Анализ ответа
 <img width="947" height="808" alt="image" src="https://github.com/user-attachments/assets/300fc004-7d63-47b4-8205-b44d5b4d6225" />
 GET / HTTP/2 - Запрос главной страницы сайта по протоколу HTTP/2
