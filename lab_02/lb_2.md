@@ -154,7 +154,9 @@ if __name__ == '__main__':
 ```bash
 python3 app.py
 ```
+<img width="856" height="333" alt="image" src="https://github.com/user-attachments/assets/03b77886-c9af-49ea-a9d3-f6c4b0ca869c" />
 
+Сервер запускается на http://127.0.0.1:5000
 ---
 
 ## 5.3 Настройка Nginx (reverse proxy)
@@ -199,16 +201,14 @@ sudo systemctl restart nginx
 ```bash
 curl http://localhost/api/menu
 ```
+<img width="722" height="874" alt="image" src="https://github.com/user-attachments/assets/80b60e86-9643-40d3-9b17-73c0f87053e6" />
 
 ---
-
 ### Получение блюда по ID
-
 ```bash
 curl http://localhost/api/menu/1
 ```
 
----
 
 ### Добавление блюда
 
