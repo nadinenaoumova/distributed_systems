@@ -68,6 +68,7 @@ server: nginx - Сервер работает на Nginx
 
 
 Шаг 2. Установка и настройка Nginx
+
 ## 5.1 Установка и запуск Nginx
 
 ```bash
@@ -76,17 +77,9 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-Проверка:
-
-```bash
-http://localhost
-```
-
-Результат: страница “Welcome to nginx”
-
 ---
 
-## 5.2 Разработка REST API (Flask)
+## 5.2 Разработка REST API (Ресторанное меню)
 
 ### Установка зависимостей
 
@@ -116,10 +109,12 @@ menu = [
 
 next_id = 3
 
+# Получить всё меню
 @app.route('/api/menu', methods=['GET'])
 def get_menu():
     return jsonify(menu)
 
+# Получить блюдо по ID
 @app.route('/api/menu/<int:item_id>', methods=['GET'])
 def get_item(item_id):
     item = next((i for i in menu if i['id'] == item_id), None)
@@ -127,10 +122,14 @@ def get_item(item_id):
         return jsonify(item)
     return jsonify({"error": "Not found"}), 404
 
+# Добавить блюдо
 @app.route('/api/menu', methods=['POST'])
 def add_item():
     global next_id
     data = request.get_json()
+
+    if not data or 'dish_name' not in data:
+        return jsonify({"error": "dish_name required"}), 400
 
     new_item = {
         "id": next_id,
