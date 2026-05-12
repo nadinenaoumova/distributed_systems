@@ -217,7 +217,7 @@ curl http://10.0.2.15/api/menu/1
 ```bash
 curl -X POST -H "Content-Type: application/json" \
 -d '{"dish_name":"Суп","price":250,"category":"Первое"}' \
-http://localhost/api/menu
+http://10.0.2.15/api/menu
 ```
 
 ---
