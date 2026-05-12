@@ -200,9 +200,10 @@ sudo systemctl restart nginx
 ### Получение всех блюд
 
 ```bash
-curl http://localhost/api/menu
+curl http://10.0.2.15/api/menu | jq -r
 ```
-<img width="722" height="874" alt="image" src="https://github.com/user-attachments/assets/80b60e86-9643-40d3-9b17-73c0f87053e6" />
+<img width="1105" height="965" alt="image" src="https://github.com/user-attachments/assets/56fd5c59-1e1a-4031-ae0e-1e2d4d4fbb5e" />
+
 
 ---
 ### Получение блюда по ID
@@ -224,7 +225,7 @@ http://localhost/api/menu
 ### Проверка через Nginx
 
 ```bash
-curl http://localhost/api/menu
+curl http://10.0.2.15/api/menu | jq -r
 ```
 
 ---
