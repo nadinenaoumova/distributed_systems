@@ -208,7 +208,7 @@ curl http://10.0.2.15/api/menu | jq -r
 ---
 ### Получение блюда по ID
 ```bash
-curl http://localhost/api/menu/1
+curl http://10.0.2.15/api/menu/1
 ```
 
 
