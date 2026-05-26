@@ -116,11 +116,10 @@ Producer:
 ## Примеры сообщений:
 <img width="1473" height="679" alt="image" src="https://github.com/user-attachments/assets/71594370-b7af-46e8-b16d-e759d834a787" />
 
-
 ## 1. IoT температура
 
 ```text
-{"temperature": 30}
+python producer.py '{"temperature": 30}'
 ```
 
 ---
@@ -128,7 +127,7 @@ Producer:
 ## 2. Проверка четности
 
 ```text
-10
+python producer.py 7
 ```
 
 ---
@@ -136,7 +135,7 @@ Producer:
 ## 3. Слияние текстов
 
 ```text
-hello|world
+python producer.py "hello|world"
 ```
 
 ---
