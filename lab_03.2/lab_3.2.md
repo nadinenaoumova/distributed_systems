@@ -4,8 +4,8 @@
 
 ## Выполнила:
 
-ФИО: ____________________
-Группа: __________________
+ФИО: Наумова Надя
+Группа: ЦИБ-241
 Вариант: 14
 
 ---
@@ -80,7 +80,7 @@ Bandwidth = (N × Fanout × PacketSize) / Interval
 
 # 📈 График 1 — Зависимость Bandwidth от Gossip Interval
 
-image
+<img width="1096" height="686" alt="image" src="https://github.com/user-attachments/assets/97ebc774-a82e-49d3-bbbd-20ab22416578" />
 
 ## Анализ графика
 
@@ -116,7 +116,7 @@ image
 
 # 📈 График 2 — Boxplot времени конвергенции
 
-image
+<img width="1256" height="636" alt="image" src="https://github.com/user-attachments/assets/f780f5bc-e704-4458-8587-eedf816b7313" />
 
 ## Анализ графика
 
@@ -136,7 +136,7 @@ image
 
 # 📈 График 3 — Boxplot сетевого трафика
 
-image
+<img width="1322" height="640" alt="image" src="https://github.com/user-attachments/assets/1b2e400b-dbc3-487d-a7a3-69a87eaffd44" />
 
 ## Анализ графика
 
