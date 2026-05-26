@@ -78,59 +78,8 @@ Producer → RabbitMQ → Consumer → gRPC Server
 
 с использованием `grpc_tools`.
 
----
-
-# Реализована логика обработки сообщений
-
-## 1. Проверка температуры IoT
-
-Сервис принимает JSON с температурой:
-
-```json
-{"temperature": 30}
-```
-
-Если температура:
-
-* меньше 18°C
-* больше 25°C
-
-то возвращается:
-
-```text
-ALARM
-```
-
-иначе:
-
-```text
-NORMAL
-```
-
----
-
-## 2. Проверка четности числа
-
-Сервис принимает число и определяет:
-
-* четное → `EVEN`
-* нечетное → `ODD`
-
----
-
-## 3. Слияние текстов
-
-Сервис принимает два текста через разделитель `|`:
-
-```text
-hello|world
-```
-
-и объединяет их:
-
-```text
-helloworld
-```
+# Сервер запущен: 
+<img width="1435" height="777" alt="image" src="https://github.com/user-attachments/assets/562efd79-fbb1-4dd8-97b7-89565fb0edf5" />
 
 ---
 
@@ -153,14 +102,9 @@ helloworld
 
 # ЧАСТЬ 2. Реализация RabbitMQ (асинхронное взаимодействие)
 
-Создан файл `docker-compose.yml` и выполнен запуск RabbitMQ в Docker-контейнере.
+Создан файл `docker-compose.yml` и выполнен запуск RabbitMQ в Docker-контейнере:
+<img width="1373" height="697" alt="image" src="https://github.com/user-attachments/assets/9abf6d14-e63b-449c-af29-dcfce509d98d" />
 
-Использовались порты:
-
-* `5672` — подключение клиентов
-* `15672` — web-интерфейс RabbitMQ
-
----
 
 # Реализован Producer
 
@@ -169,7 +113,9 @@ Producer:
 * принимает данные от пользователя
 * отправляет сообщения в очередь RabbitMQ
 
-Примеры сообщений:
+## Примеры сообщений:
+<img width="1473" height="679" alt="image" src="https://github.com/user-attachments/assets/71594370-b7af-46e8-b16d-e759d834a787" />
+
 
 ## 1. IoT температура
 
