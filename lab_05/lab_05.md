@@ -4,7 +4,7 @@
 
 ### Студент
 
-**ФИО:** Песенкова Екатерина
+**ФИО:** Наумова Надежда
 
 **Группа:** ЦИБ-241
 
@@ -50,7 +50,7 @@
 
 # Архитектура проекта
 
-> Вставить схему архитектуры проекта.
+<img width="1199" height="1312" alt="image" src="https://github.com/user-attachments/assets/26e0bd2a-7de1-4ce8-b303-050c9859bf2e" />
 
 ---
 
@@ -104,7 +104,7 @@ cd lab_05
 
 ```text
 Flask==2.0.1
-Werkzeug==2.0.3
+Werkzeug==2.3.7
 redis==4.6.0
 ```
 
@@ -268,7 +268,7 @@ docker compose ps
 
 В результате оба контейнера имели статус **running**.
 
-> Вставить скриншот docker compose ps.
+<img width="1571" height="679" alt="image" src="https://github.com/user-attachments/assets/a8e52bff-f464-4281-a7df-0a93ef8c10ac" />
 
 ---
 
@@ -289,7 +289,11 @@ http://localhost:8888
 ...
 ```
 
-> Вставить скриншот страницы браузера.
+<img width="801" height="439" alt="image" src="https://github.com/user-attachments/assets/447697ca-6b47-4ce0-86b4-02124bf116cb" />
+
+<img width="807" height="335" alt="image" src="https://github.com/user-attachments/assets/3314f2ee-b28d-4800-ab96-c64473509e61" />
+
+<img width="703" height="293" alt="image" src="https://github.com/user-attachments/assets/fff0fc4e-f590-4807-9a24-baa99b6c7f1e" />
 
 ---
 
@@ -309,7 +313,7 @@ GET places
 
 В результате Redis возвращал текущее количество свободных мест.
 
-> Вставить скриншот команды GET places.
+<img width="1545" height="675" alt="image" src="https://github.com/user-attachments/assets/ac28012a-4714-461f-af4a-694a71db4f04" />
 
 ---
 
